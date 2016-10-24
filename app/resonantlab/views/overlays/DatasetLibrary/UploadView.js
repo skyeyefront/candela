@@ -46,9 +46,12 @@ let UploadView = girder.views.UploadWidget.extend({
     let fileType = null;
     if (this.files.length > 0) {
       let ext = this.files[0].type;
+      console.log('1', `-- ${ext} --`);
       if (!ext && this.files[0].name.indexOf('.') !== -1) {
         ext = this.files[0].name.split('.').slice(-1)[0].toLowerCase();
+      console.log('2', `-- ${ext} --`);
       }
+      console.log('ext', `-- ${ext} --`);
       if (ext && ext in SUPPORTED_FORMATS) {
         fileType = SUPPORTED_FORMATS[ext];
       }
